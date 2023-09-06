@@ -16,8 +16,8 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float steerAmount = UnityEngine.Input.GetAxis("Horizontal") * steerSpeed;
-        float moveAmount = UnityEngine.Input.GetAxis("Vertical") * moveSpeed;
+        float steerAmount = UnityEngine.Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
+        float moveAmount = UnityEngine.Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         transform.Rotate(0, 0, -steerAmount);
         transform.Translate(0, moveAmount, 0);
     }
