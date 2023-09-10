@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Driver : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] float steerSpeed = 1f;
