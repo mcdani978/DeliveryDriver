@@ -7,8 +7,8 @@ public class Delivery : MonoBehaviour
     [SerializeField] Color32 hasPackageColor = new Color32(1, 1, 1, 1);
     [SerializeField] Color32 noPackageColor = new Color32(1, 1, 1, 1);
 
-    [SerializeField] float destroyDelay = 0.5f;
-    bool hasPackage;
+    [SerializeField] float Flt_destroyDelay = 0.5f;
+    bool Bool_hasPackage;
 
     SpriteRenderer spriteRenderer;
 
@@ -23,18 +23,18 @@ public class Delivery : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
    {
-        if (other.tag == "Package" && !hasPackage)
+        if (other.tag == "Package" && !Bool_hasPackage)
         {
             Debug.Log("Package picked up");
-            hasPackage = true;
+            Bool_hasPackage = true;
             spriteRenderer.color = hasPackageColor;
-            Destroy(other.gameObject, destroyDelay);
+            Destroy(other.gameObject, Flt_destroyDelay);
         }
 
-        if (other.tag == "Customer" && hasPackage)
+        if (other.tag == "Customer" && Bool_hasPackage)
         {
            Debug.Log("Package Delivered");
-           hasPackage = false;
+           Bool_hasPackage = false;
            spriteRenderer.color = noPackageColor;
         }
    }
