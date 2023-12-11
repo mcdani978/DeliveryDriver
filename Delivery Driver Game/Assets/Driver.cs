@@ -45,8 +45,16 @@ public class Driver : MonoBehaviour
 
         // Clamp the player's position to the camera's boundaries
         Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
-        position.x = Mathf.Clamp(position.x, 0.13f, 0.87f); //0.1f, 0.9f
-        position.y = Mathf.Clamp(position.y, 0.08f, 0.933f);
+
+        // Calculate the viewport boundaries dynamically
+        float leftBoundary = Camera.main.rect.xMin; 
+        float rightBoundary = Camera.main.rect.xMax;
+        float bottomBoundary = Camera.main.rect.yMin;
+        float topBoundary = Camera.main.rect.yMax;
+
+        position.x = Mathf.Clamp(position.x, leftBoundary, rightBoundary);
+        position.y = Mathf.Clamp(position.y, bottomBoundary, topBoundary);
+
         transform.position = Camera.main.ViewportToWorldPoint(position);
     }
 
