@@ -3216,7 +3216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea58fd217ad99644910e4a0cc2c5c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 10
+  cameraSpeed: 25
   topCollider: {fileID: 199385684}
 --- !u!1 &609062192
 GameObject:

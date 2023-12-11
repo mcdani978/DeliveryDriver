@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Followcamera : MonoBehaviour
 {
-    [SerializeField] float cameraSpeed = 10f; //5  // Speed at which the camera moves forward
+    [SerializeField] float cameraSpeed = 5f; //5  // Speed at which the camera moves forward
     [SerializeField] GameObject topCollider; // The collider that prevents the player from moving off-screen
 
     void Update()
@@ -22,6 +22,6 @@ public class Followcamera : MonoBehaviour
         // Update the camera's position
         transform.position = newPosition;
         // Move the top collider with the camera
-        topCollider.transform.position = new Vector3(transform.position.x, transform.position.y + Camera.main.orthographicSize, transform.position.z);
+       topCollider.transform.position = new Vector3(transform.position.x, transform.position.y + Camera.main.orthographicSize, transform.position.z);
     }
 }

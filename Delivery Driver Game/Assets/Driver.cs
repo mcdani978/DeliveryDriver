@@ -18,7 +18,7 @@ public class Driver : MonoBehaviour
 
         if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
         {
-            Flt_moveAmount = 42 * Time.deltaTime;
+            Flt_moveAmount = 70 * Time.deltaTime;
         }
         else if (UnityEngine.Input.GetKey(KeyCode.DownArrow))
         {
@@ -26,11 +26,11 @@ public class Driver : MonoBehaviour
         }
         else
         {
-            Flt_moveAmount = Time.deltaTime * 10;
+            Flt_moveAmount = Time.deltaTime * 25;
         }
 
         // Use the same speed for left and right movement as for forward movement
-        float Flt_sideMoveAmount = 42 * Time.deltaTime; //Flt_moveAmount * 2;
+        float Flt_sideMoveAmount = 60 * Time.deltaTime; //Flt_moveAmount * 2;
 
         if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
         {
