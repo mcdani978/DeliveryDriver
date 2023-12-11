@@ -11,7 +11,7 @@ public class Followcamera : MonoBehaviour
     void Update()
     {
         // Adjust the size of the collider to match the camera's view
-        float colliderWidth = Camera.main.aspect * Camera.main.orthographicSize * 2;
+        float colliderWidth = Camera.main.aspect * Camera.main.orthographicSize * 2; //2
         topCollider.GetComponent<BoxCollider2D>().size = new Vector2(colliderWidth, 1);
     }
 

@@ -7,23 +7,40 @@ public class Driver : MonoBehaviour
 
 
     [SerializeField] float Flt_steerSpeed = 1f;
-    [SerializeField] float Flt_moveSpeed = 50f; //20f
+    [SerializeField] float Flt_moveSpeed = 20f;
     [SerializeField] float Flt_slowSpeed = 15f;
     [SerializeField] float Flt_boostSpeed = 30f;
 
     void Update()
     {
-        float Flt_steerAmount = UnityEngine.Input.GetAxis("Horizontal") * Flt_steerSpeed * Time.deltaTime;
-        float Flt_moveAmount = UnityEngine.Input.GetAxis("Vertical") * Flt_moveSpeed * Time.deltaTime;
-        transform.Rotate(0, 0, -Flt_steerAmount);
+        float Flt_moveAmount = 0;
 
-        // If the player is not moving, move forward with the camera
-        if (Flt_moveAmount == 0)
+        if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
+        {
+            Flt_moveAmount = 42 * Time.deltaTime;
+        }
+        else if (UnityEngine.Input.GetKey(KeyCode.DownArrow))
+        {
+            Flt_moveAmount = -40 * Time.deltaTime; // Move backward
+        }
+        else
         {
             Flt_moveAmount = Time.deltaTime * 10;
         }
 
-        transform.Translate(0, Flt_moveAmount, 0);
+        // Use the same speed for left and right movement as for forward movement
+        float Flt_sideMoveAmount = 42 * Time.deltaTime; //Flt_moveAmount * 2;
+
+        if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(-Flt_sideMoveAmount, 0, 0); // Move left
+        }
+        else if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Flt_sideMoveAmount, 0, 0); // Move right
+        }
+
+        transform.Translate(0, Flt_moveAmount, 0); // Move forward
 
         // Clamp the player's position to the camera's boundaries
         Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
